@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("DATABASE_SHADOW_URL")
+}
+
+model simulations {
+  id          String                @id @unique @default(uuid())
+  schedule_id String?
+  rates  Json
+  total       Decimal?              @default(0) @db.Decimal(15, 2)
+  discount    Decimal? @default(0) @db.Decimal(15, 2)
+  net_value   Decimal? @default(0) @db.Decimal(15, 2)
+  situation   String                     @default("created")
+}
