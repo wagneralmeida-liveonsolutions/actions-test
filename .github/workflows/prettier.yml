@@ -18,11 +18,11 @@ jobs:
           # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
 
-      - name: Install npm v8
-        run: npm i -g npm@8
+      # - name: Install npm v8
+      #   run: npm i -g npm@8
 
       - name: Prettify code
-        uses: creyD/prettier_action@v4.2
+        uses: creyD/prettier_action@v4.3
         with:
-          # This part is also where you can pass other options, for example:
-          prettier_options: --write **/*.{js,md}
+          dry: true
+          prettier_options: --check **/*.{md,yml}
