@@ -1,5 +1,5 @@
 const test = {
-  firstName: "Wagner",
+  firstName: 'Wagner',
   lastName: 'Almeida',
   age: 18,
   address: '',
